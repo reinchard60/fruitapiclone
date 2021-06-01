@@ -2,6 +2,7 @@ package com.fruit.services;
 
 import com.fruit.api.v1.mapper.CustomerMapper;
 import com.fruit.api.v1.model.CustomerDTO;
+import com.fruit.domain.Customer;
 import com.fruit.repositories.CustomerRepository;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +33,22 @@ public class CustomerServiceImpl implements CustomerService {
         return customerRepository.findById(id)
                 .map(customerMapper::customerToCustomerDTO)
                 .orElseThrow(RuntimeException::new);
+    }
+
+    @Override
+    public CustomerDTO createNewCustomer(CustomerDTO customerDTO) {
+        return saveCustomerDto(customerMapper.customerDTOToCustomer(customerDTO));
+    }
+
+    @Override
+    public CustomerDTO updateCustomer(Long id, CustomerDTO customerDTO) {
+        Customer customer = customerMapper.customerDTOToCustomer(customerDTO);
+        customer.setId(id);
+        return saveCustomerDto(customer);
+    }
+
+    public CustomerDTO saveCustomerDto(Customer customer) {
+        Customer saveCustomer = customerRepository.save(customer);
+        return customerMapper.customerToCustomerDTO(saveCustomer);
     }
 }
