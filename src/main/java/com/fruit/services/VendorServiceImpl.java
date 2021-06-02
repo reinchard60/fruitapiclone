@@ -7,7 +7,6 @@ import com.fruit.domain.Vendor;
 import com.fruit.repositories.VendorRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Service

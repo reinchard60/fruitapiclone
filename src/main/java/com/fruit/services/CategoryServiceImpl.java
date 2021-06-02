@@ -2,11 +2,9 @@ package com.fruit.services;
 
 import com.fruit.api.v1.mapper.CategoryMapper;
 import com.fruit.api.v1.model.CategoryDTO;
-import com.fruit.domain.Category;
 import com.fruit.repositories.CategoryRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 

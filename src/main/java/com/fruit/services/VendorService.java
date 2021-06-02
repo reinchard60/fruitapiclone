@@ -3,8 +3,6 @@ package com.fruit.services;
 import com.fruit.api.v1.model.VendorDTO;
 import com.fruit.api.v1.model.VendorListDTO;
 
-import java.util.List;
-
 public interface VendorService {
     VendorListDTO getAllVendors();
 

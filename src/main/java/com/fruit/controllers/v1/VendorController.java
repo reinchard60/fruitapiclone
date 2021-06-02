@@ -3,7 +3,6 @@ package com.fruit.controllers.v1;
 import com.fruit.api.v1.model.VendorDTO;
 import com.fruit.api.v1.model.VendorListDTO;
 import com.fruit.services.VendorService;
-import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

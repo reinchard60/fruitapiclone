@@ -4,7 +4,7 @@ import com.fruit.api.v1.model.VendorDTO;
 import com.fruit.domain.Vendor;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class VendorMapperTest {
 

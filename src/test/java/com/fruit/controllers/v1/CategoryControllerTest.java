@@ -2,7 +2,6 @@ package com.fruit.controllers.v1;
 
 import com.fruit.api.v1.model.CategoryDTO;
 import com.fruit.controllers.RestResponseEntityExceptionHandler;
-import com.fruit.controllers.v1.CategoryController;
 import com.fruit.services.CategoryService;
 import com.fruit.services.ResourceNotFoundException;
 import org.junit.Before;
@@ -20,7 +19,6 @@ import java.util.List;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.hasSize;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
