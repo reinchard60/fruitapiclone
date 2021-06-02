@@ -23,7 +23,7 @@ public class CustomerServiceTest {
     private static final String FIRST_NAME = "John";
     private static final String LAST_NAME = "Doe";
     private static final Long ID = 1L;
-    private static final String BASE_URL = "/api/v1/customers/";
+    private static final String CUSTOMER_URL = "/api/v1/customers/1";
     CustomerService customerService;
 
     @Mock
@@ -62,7 +62,7 @@ public class CustomerServiceTest {
         //then
         assertEquals(FIRST_NAME, customerDTO.getFirstName());
         assertEquals(LAST_NAME, customerDTO.getLastName());
-        assertEquals(BASE_URL + ID, customerDTO.getCustomerUrl());
+        assertEquals(CUSTOMER_URL, customerDTO.getCustomerUrl());
     }
 
     @Test
@@ -85,7 +85,7 @@ public class CustomerServiceTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals(BASE_URL + ID, savedDto.getCustomerUrl());
+        assertEquals(CUSTOMER_URL, savedDto.getCustomerUrl());
     }
 
     @Test
@@ -108,7 +108,7 @@ public class CustomerServiceTest {
 
         //then
         assertEquals(customerDTO.getFirstName(), savedDto.getFirstName());
-        assertEquals("/api/v1/customers/1", savedDto.getCustomerUrl());
+        assertEquals(CUSTOMER_URL, savedDto.getCustomerUrl());
     }
 
     @Test

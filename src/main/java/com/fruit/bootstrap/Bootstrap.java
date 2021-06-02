@@ -2,8 +2,10 @@ package com.fruit.bootstrap;
 
 import com.fruit.domain.Category;
 import com.fruit.domain.Customer;
+import com.fruit.domain.Vendor;
 import com.fruit.repositories.CategoryRepository;
 import com.fruit.repositories.CustomerRepository;
+import com.fruit.repositories.VendorRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -18,16 +20,19 @@ public class Bootstrap implements CommandLineRunner {
 
     private final CategoryRepository categoryRepository;
     private final CustomerRepository customerRepository;
+    private final VendorRepository vendorRepository;
 
-    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository) {
+    public Bootstrap(CategoryRepository categoryRepository, CustomerRepository customerRepository, VendorRepository vendorRepository) {
         this.categoryRepository = categoryRepository;
         this.customerRepository = customerRepository;
+        this.vendorRepository = vendorRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         LoadCategories();
         loadCustomers();
+        loadVendors();
     }
 
     private void LoadCategories() {
@@ -52,5 +57,14 @@ public class Bootstrap implements CommandLineRunner {
         users.forEach(customerRepository::save);
 
         log.info("Customers loaded: {}", customerRepository.count());
+    }
+
+    private void loadVendors() {
+        List<String> vendors = Arrays.asList("Western Tasty Fruits Ltd.", "Exotic Fruits Company",
+                "Home Fruits", "Nuts for Nuts Company", "Franks Fresh Fruits from France Ltd.");
+
+        vendors.forEach(vendor -> vendorRepository.save(new Vendor(null, vendor)));
+
+        log.info("Vendorss loaded: {}", vendorRepository.count());
     }
 }

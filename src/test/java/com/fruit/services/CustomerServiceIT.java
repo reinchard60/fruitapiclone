@@ -6,6 +6,7 @@ import com.fruit.bootstrap.Bootstrap;
 import com.fruit.domain.Customer;
 import com.fruit.repositories.CategoryRepository;
 import com.fruit.repositories.CustomerRepository;
+import com.fruit.repositories.VendorRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,9 @@ public class CustomerServiceIT {
     @Autowired
     CategoryRepository categoryRepository;
 
+    @Autowired
+    VendorRepository vendorRepository;
+
     CustomerService customerService;
 
     @Before
@@ -36,7 +40,7 @@ public class CustomerServiceIT {
         System.out.println("loading Customer Data");
         System.out.println(customerRepository.findAll().size());
 
-        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository);
+        Bootstrap bootstrap = new Bootstrap(categoryRepository, customerRepository, vendorRepository);
         bootstrap.run();
 
         customerService = new CustomerServiceImpl(CustomerMapper.INSTANCE, customerRepository);
